@@ -64,16 +64,26 @@ public static void main(String[] args) {
 ### Integration
 Integration test are for example when in a class your are trying to connect to a Data Base or an API you are testing that integration. or maybe when you are testing how they connect with diferent modules in your app.
 ```java
-public abstract class User {
-    private int id;
-    private String name;
-    private String email;
-    private String address;
-    private String phoneNumber;
+public class MovieRepositoryIntegrationTest {
+    @Test
+    public void load_all_movies() throws SQLException {
 
-    public User(String name, String email) {
-        this.name = name;
-        this.email = email;
+        DataSource dataSource =
+                new DriverManagerDataSource("jdbc:h2:mem:test;MODE=MYSQL", "sa", "sa");
+
+        ScriptUtils.executeSqlScript(dataSource.getConnection(), new ClassPathResource("sql-scripts/test-data.sql"));
+
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+
+        MovieRepositoryJdbc movieRepository = new MovieRepositoryJdbc(jdbcTemplate);
+
+        Collection<Movie> movies = movieRepository.findAll();
+
+        assertThat(movies,is(Arrays.asList(
+                new Movie(1,"Dark Knight",152,Genre.ACTION),
+                new Movie(2,"Dark Knight",113,Genre.THRILLER),
+                new Movie(3,"Matrix",136,Genre.ACTION)
+        )) );
     }
 }
 ```
