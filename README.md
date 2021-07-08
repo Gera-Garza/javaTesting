@@ -30,11 +30,16 @@ In this course talk about all what can be done and some benefits from using Test
 ### Unitary
 This kind of test are focus on testing a single class in the program/proyect 
 ```java
-public class Main {
-    public static void main(String[] args) {
-        showMenu();
-    }//end of main
-}//end of Main class
+public static void main(String[] args) {
+
+        String result = StringUtil.repeat("hola",3);
+        assertEquals(result,"holaholahola");
+
+
+        String result2 = StringUtil.repeat("hola",1);
+        if (!result2.equals("hola"))
+            throw new RuntimeException("Error is received "+result2+ " but it should be hola");
+    }
 ```
 ### Integration
 Integration test are for example when in a class your are trying to connect to a Data Base or an API you are testing that integration. or maybe when you are testing how they connect with diferent modules in your app.
