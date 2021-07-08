@@ -14,7 +14,7 @@ public class StringUtilTest {
 
         String result2 = StringUtil.repeat("hola",1);
         if (!result2.equals("hola"))
-            throw new RuntimeException("Error");
+            throw new RuntimeException("Error is received "+result2+ " but it should be hola");
     }
 
     /*@Test
