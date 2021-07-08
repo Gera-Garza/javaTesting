@@ -28,7 +28,7 @@ Start your proyect creating your files with **.java**
 In this course talk about all what can be done and some benefits from using Test it is recommended to use automated test rather than manual testing, there are severals kinds of thest the [Unitary](#unitary), [Integration](#integration), [Functinoal](#functional), [End_to_end](#end_to_end) and [Stress](#stress) test next I will talk more about them. Some benefits that have doing testing are for example, checking that we really complete the requirements, it helps with the documentation, improves our confidence and well its a tool that adds value as a developer.
 
 ### Unitary
-> **Classes** A class is the model that you define to create objects it contains, an identifier, properties and methods.
+This kind of test are focus on testing a single class in the program/proyect 
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -37,7 +37,7 @@ public class Main {
 }//end of Main class
 ```
 ### Integration
-An abstraction is when you recognize that you need a specific properties that you will used repeatedly in your code, so you abstract them and create a class
+Integration test are for example when in a class your are trying to connect to a Data Base or an API you are testing that integration. or maybe when you are testing how they connect with diferent modules in your app.
 ```java
 public abstract class User {
     private int id;
@@ -53,7 +53,7 @@ public abstract class User {
 }
 ```
 ### Functional
-> **Classes** A class is the model that you define to create objects it contains, an identifier, properties and methods.
+Test a specific function in your system.
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -62,7 +62,7 @@ public class Main {
 }//end of Main class
 ```
 ### End_to_end
-> **Classes** A class is the model that you define to create objects it contains, an identifier, properties and methods.
+This are the kind of test that are focus in testing a full user history from the begining to end.
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -71,7 +71,7 @@ public class Main {
 }//end of Main class
 ```
 ### Stress
-> **Classes** A class is the model that you define to create objects it contains, an identifier, properties and methods.
+This is a common test by testing the capacity of the program by supporting many scenarios.
 ```java
 public class Main {
     public static void main(String[] args) {
