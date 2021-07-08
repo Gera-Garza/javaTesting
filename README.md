@@ -15,6 +15,7 @@ This is the repository for the course of java testing with Platzi, here you will
 Project is created with:
 * IntelliJ IDEA
 > * With openJDK 1.8 
+> * With the module of Junit
 
 	
 ## Setup
@@ -39,6 +40,25 @@ public static void main(String[] args) {
         String result2 = StringUtil.repeat("hola",1);
         if (!result2.equals("hola"))
             throw new RuntimeException("Error is received "+result2+ " but it should be hola");
+    }
+```
+> with Junit this is an example
+```java
+@Test
+    public void repeat_string_once() {
+        Assert.assertEquals("hola", StringUtil.repeat("hola", 1));
+    }
+
+    @Test
+    public void repeat_string_multiple_times() {
+        Assert.assertEquals("holaholahola", StringUtil.repeat("hola", 3));
+    }
+```
+> an example with an exception
+```java
+     @Test(expected = IllegalArgumentException.class)
+    public void repeat_string_negative_times() {
+        StringUtil.repeat("hola", -1);
     }
 ```
 ### Integration
